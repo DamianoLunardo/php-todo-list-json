@@ -13,7 +13,7 @@ $title = 'PHP ToDo List JSON';
     <title><?php echo $title ?></title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   
@@ -22,17 +22,15 @@ $title = 'PHP ToDo List JSON';
       <section>
         <div class="container">
           <h1> {{ title }}</h1>
+          <input type="text" v-model="newTodo" @keyup.enter="storeTodo">
         </div>
       </section>
 
       <section>
         <div class="container">
           <ul>
-            <li>Ciao</li>
-            <li>Prova</li>
-            <li>Lista</li>
-            <li>uno</li>
-          </ul>
+            <li v-for="(todo, i) in todos" :key="i">{{ todo }}</li>
+            </ul>
         </div>
       </section>
     </main>
