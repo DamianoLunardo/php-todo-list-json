@@ -28,9 +28,12 @@ $title = 'PHP ToDo List JSON';
 
       <section>
         <div class="container">
-          <ul>
-            <li v-for="(todo, i) in todos" :key="i">{{ todo }}</li>
-            </ul>
+          <ul >
+            <li v-for="(todo, i) in todos" :key="i">{{ todo }}
+            <input type ="checkbox">
+            <button>delete</button>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
