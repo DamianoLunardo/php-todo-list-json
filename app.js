@@ -29,6 +29,18 @@ createApp({
                 this.newTodo = ''
             })
         },
+        deleteTodo(index){
+            this.todos.splice(index, 1);
+
+            axios.post('delete.php', {index}, {
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                },
+            }).then (res => {
+                this.todos = res.data.todos
+            })
+            
+        },
     },
     created(){
         this.fetchData()
