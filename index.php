@@ -39,8 +39,8 @@ $title = 'PHP ToDo List JSON';
             </thead>
             <tbody>
               <tr v-for="(todo, i) in todos" :key="i">
-                <td>{{ todo }}</td>
-                <td><input type="checkbox" ></td>
+                <td :class="{ 'done': checkedTodos[i] }">{{ todo }}</td>
+                <td><input type="checkbox" v-model="checkedTodos[i]"></td>
                 <td><button class="btn btn-danger" @click="deleteTodo(i)">remove</button></td>
               </tr>
             </tbody>

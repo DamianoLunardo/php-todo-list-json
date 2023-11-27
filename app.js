@@ -6,6 +6,7 @@ createApp({
             title: 'To Do List',
             todos: [],
             newTodo: '',
+            checkedTodos: [],
         }
     },
     methods: {
@@ -13,6 +14,7 @@ createApp({
             axios.get('./server.php').then(res =>{
                 console.log(res.data.results)
                 this.todos = res.data.results
+                this.checkedTodos = Array(this.todos.length);
             })
         },
         storeTodo() {
@@ -27,6 +29,7 @@ createApp({
             }).then(res => {
                 this.todos = res.data.todos 
                 this.newTodo = ''
+                this.checkedTodos.push(false);
             })
         },
         deleteTodo(index){
